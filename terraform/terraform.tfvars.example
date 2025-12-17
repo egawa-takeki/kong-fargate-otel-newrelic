@@ -1,0 +1,51 @@
+# =============================================================================
+# Example Terraform Variables
+# =============================================================================
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is ignored by git for security
+
+# General
+project_name = "kong-otel"
+environment  = "dev"
+aws_region   = "ap-northeast-1"
+
+# VPC (optional - defaults are fine for most cases)
+# vpc_cidr             = "10.0.0.0/16"
+# availability_zones   = ["ap-northeast-1a", "ap-northeast-1c"]
+# public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+# private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24"]
+
+# Kong Konnect (required)
+# Get these values from Kong Konnect Portal -> Runtime Manager -> New Runtime Instance
+kong_cluster_endpoint   = "xxxxx.us.cp0.konghq.com:443"
+kong_telemetry_endpoint = "xxxxx.us.tp0.konghq.com:443"
+
+# Certificate and Key (PEM format, multiline)
+# You can use heredoc syntax or escape newlines with \n
+kong_cluster_cert = <<-EOT
+-----BEGIN CERTIFICATE-----
+YOUR_CERTIFICATE_HERE
+-----END CERTIFICATE-----
+EOT
+
+kong_cluster_cert_key = <<-EOT
+-----BEGIN PRIVATE KEY-----
+YOUR_PRIVATE_KEY_HERE
+-----END PRIVATE KEY-----
+EOT
+
+# New Relic (required)
+# Get your Ingest License Key from New Relic -> API Keys
+new_relic_license_key = "YOUR_NEW_RELIC_LICENSE_KEY"
+
+# ECS (optional - defaults are fine for demo)
+# kong_cpu               = 512
+# kong_memory            = 1024
+# dummy_api_cpu          = 256
+# dummy_api_memory       = 512
+# otel_collector_cpu     = 256
+# otel_collector_memory  = 512
+# kong_desired_count     = 1
+# dummy_api_desired_count = 1
+
+
